@@ -284,6 +284,41 @@ FIGHTGUI.MouseButton1Down:connect(function()
 		end
 		getGuns()
 	end)
+	
+	game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+		if key == "z" then
+			if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
+				local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+				local plr = game.Players.LocalPlayer.Name
+				local gayevent = game:GetService("Workspace").Remote.loadchar
+				gayevent:InvokeServer(plr)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+			else
+				local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+				Workspace.Remote.TeamEvent:FireServer("Bright orange")
+				wait()
+				local plr = game.Players.LocalPlayer.Name
+				local gayevent = game:GetService("Workspace").Remote.loadchar
+				gayevent:InvokeServer(plr)
+				LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+				LCS.CanCollide = false
+				LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+				LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				LCS.Transparency = 1
+				wait(0.5)
+				LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+				LCS.Size = Vector3.new(6, 0.2, 6)
+				LCS.Transparency = 0
+				wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+			end
+			wait(0.1)
+			if game.Players.LocalPlayer.Team.Name == "Criminals" then 
+				if game.Players.LocalPlayer.Character:FindFirstChildOfClass("ForceField") then return end
+			end
+			getGuns()
+		end
+	end)
 
 	NEUTRAL.Name = "NEUTRAL"
 	NEUTRAL.Parent = FightGui
@@ -19443,7 +19478,7 @@ local function TEVNZQG_fake_script() -- HAXE_2.Open
 	local script = Instance.new('LocalScript', HAXE_2)
 
 	player = game.Players.LocalPlayer
-	
+
 	player:GetMouse().KeyDown:Connect(function(key)
 		if key == "q" and script.Parent.Visible == false then
 			script.Parent.Visible = true
@@ -19453,21 +19488,21 @@ local function TEVNZQG_fake_script() -- HAXE_2.Open
 			end
 		end
 	end)
-	
-	
+
+
 end
 coroutine.wrap(TEVNZQG_fake_script)()
 local function CJMOM_fake_script() -- HAXE_2.BlackScreen 
 	local script = Instance.new('LocalScript', HAXE_2)
 
-	
+
 	while true do
 		wait()
 		local Gui = game:GetService("StarterGui")
 		local Player = game:GetService("Players").LocalPlayer
 		local Camera = workspace.CurrentCamera 
-	
-	
+
+
 		Player.PlayerGui.Home.intro.Visible = false 
 		Player.PlayerGui.Home.fadeFrame.Visible = false 
 		Camera.CameraType = Enum.CameraType.Custom 
