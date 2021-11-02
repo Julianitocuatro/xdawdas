@@ -25,7 +25,7 @@ local MOSCAOLD = Instance.new("TextButton")
 --Properties:
 
 HAXE.Name = "HAXE"
-HAXE.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+HAXE.Parent = game.CoreGui
 
 HAXE_2.Name = "HAXE"
 HAXE_2.Parent = HAXE
@@ -144,7 +144,7 @@ FIGHTGUI.MouseButton1Down:connect(function()
 	--Properties:
 
 	HAXEFGUI.Name = "HAXEFGUI"
-	HAXEFGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	HAXEFGUI.Parent = game.CoreGui
 	HAXEFGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	FightGui.Name = "FightGui"
@@ -730,7 +730,7 @@ ANTIABUSERS.MouseButton1Down:connect(function()
 		end
 	end
 	--Properties:
-	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	ScreenGui.Parent = game.CoreGui
 	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	Frame.Parent = ScreenGui
