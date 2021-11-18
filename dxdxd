@@ -1424,7 +1424,7 @@ Colorfav.Size = UDim2.new(0, 100, 0, 100)
 
 -- Scripts:
 
-local function APDU_fake_script() -- All.BLScript 
+local function EWHXKU_fake_script() -- All.BLScript 
 	local script = Instance.new('LocalScript', All)
 
 	local BlButton = script.Parent.Parent.menu.BLBu
@@ -1453,8 +1453,8 @@ local function APDU_fake_script() -- All.BLScript
 	
 	
 end
-coroutine.wrap(APDU_fake_script)()
-local function TLBLGIG_fake_script() -- All.StartingGUi 
+coroutine.wrap(EWHXKU_fake_script)()
+local function VOPBDBZ_fake_script() -- All.StartingGUi 
 	local script = Instance.new('LocalScript', All)
 
 	
@@ -1498,7 +1498,7 @@ local function TLBLGIG_fake_script() -- All.StartingGUi
 			colorfav.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
 		else
 			if Menu.PlayerName.Text == "HenryRenacuajo" then
-				colorfav.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+				colorfav.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
 			end
 		end
 	
@@ -1535,8 +1535,8 @@ local function TLBLGIG_fake_script() -- All.StartingGUi
 	
 	
 end
-coroutine.wrap(TLBLGIG_fake_script)()
-local function WMWRS_fake_script() -- All.EndingGui 
+coroutine.wrap(VOPBDBZ_fake_script)()
+local function JEGVGR_fake_script() -- All.EndingGui 
 	local script = Instance.new('LocalScript', All)
 
 	local InicButton = script.Parent.Parent.menu.INICIAR
@@ -1627,8 +1627,8 @@ local function WMWRS_fake_script() -- All.EndingGui
 	
 	end)
 end
-coroutine.wrap(WMWRS_fake_script)()
-local function WXPGSR_fake_script() -- GuiN.colorfav 
+coroutine.wrap(JEGVGR_fake_script)()
+local function HCZEE_fake_script() -- GuiN.colorfav 
 	local script = Instance.new('LocalScript', GuiN)
 
 	wait(3)
@@ -1642,8 +1642,8 @@ local function WXPGSR_fake_script() -- GuiN.colorfav
 	
 	
 end
-coroutine.wrap(WXPGSR_fake_script)()
-local function ALASFRR_fake_script() -- GuiN.Close/Open 
+coroutine.wrap(HCZEE_fake_script)()
+local function LTHP_fake_script() -- GuiN.Close/Open 
 	local script = Instance.new('LocalScript', GuiN)
 
 	-- Guin first pos: {-0.262, 0},{1.437, 0}
@@ -1702,8 +1702,8 @@ local function ALASFRR_fake_script() -- GuiN.Close/Open
 		end
 	end)
 end
-coroutine.wrap(ALASFRR_fake_script)()
-local function BZKK_fake_script() -- GuiN.Blacklist 
+coroutine.wrap(LTHP_fake_script)()
+local function DGNC_fake_script() -- GuiN.Blacklist 
 	local script = Instance.new('LocalScript', GuiN)
 
 	local colorfav = script.Parent.Parent.Parent.Colorfav
@@ -1749,8 +1749,8 @@ local function BZKK_fake_script() -- GuiN.Blacklist
 		end
 	end)
 end
-coroutine.wrap(BZKK_fake_script)()
-local function CRAAXE_fake_script() -- Page4.CountFunc 
+coroutine.wrap(DGNC_fake_script)()
+local function QFYQSEO_fake_script() -- Page4.CountFunc 
 	local script = Instance.new('LocalScript', Page4)
 
 	function chat(message)
@@ -1785,8 +1785,8 @@ local function CRAAXE_fake_script() -- Page4.CountFunc
 	
 	
 end
-coroutine.wrap(CRAAXE_fake_script)()
-local function DHUKGVO_fake_script() -- Page4.Sub1Page 
+coroutine.wrap(QFYQSEO_fake_script)()
+local function JBUC_fake_script() -- Page4.Sub1Page 
 	local script = Instance.new('LocalScript', Page4)
 
 	local Page = 1
@@ -1861,8 +1861,8 @@ local function DHUKGVO_fake_script() -- Page4.Sub1Page
 		refreshP()
 	end)
 end
-coroutine.wrap(DHUKGVO_fake_script)()
-local function ULPWU_fake_script() -- Sub1p2.GunColorT 
+coroutine.wrap(JBUC_fake_script)()
+local function ILPNGS_fake_script() -- Sub1p2.GunColorT 
 	local script = Instance.new('LocalScript', Sub1p2)
 
 	guncolorOn = script.Parent.SETTIME
@@ -1883,8 +1883,8 @@ local function ULPWU_fake_script() -- Sub1p2.GunColorT
 		end
 	end)
 end
-coroutine.wrap(ULPWU_fake_script)()
-local function OCET_fake_script() -- Page4.Sub1Fade 
+coroutine.wrap(ILPNGS_fake_script)()
+local function UMBFPIC_fake_script() -- Page4.Sub1Fade 
 	local script = Instance.new('LocalScript', Page4)
 
 	local izq = script.Parent.Izq
@@ -1919,8 +1919,8 @@ local function OCET_fake_script() -- Page4.Sub1Fade
 		refreshFade()
 	end)
 end
-coroutine.wrap(OCET_fake_script)()
-local function DQNFCJ_fake_script() -- Page4.Sub2Page 
+coroutine.wrap(UMBFPIC_fake_script)()
+local function NMOHNO_fake_script() -- Page4.Sub2Page 
 	local script = Instance.new('LocalScript', Page4)
 
 	local Page = 0
@@ -2008,8 +2008,8 @@ local function DQNFCJ_fake_script() -- Page4.Sub2Page
 	
 	
 end
-coroutine.wrap(DQNFCJ_fake_script)()
-local function AIIC_fake_script() -- Page4.Sub2Fade 
+coroutine.wrap(NMOHNO_fake_script)()
+local function MLMCN_fake_script() -- Page4.Sub2Fade 
 	local script = Instance.new('LocalScript', Page4)
 
 	local Page = 1
@@ -2064,8 +2064,8 @@ local function AIIC_fake_script() -- Page4.Sub2Fade
 	end)
 	
 end
-coroutine.wrap(AIIC_fake_script)()
-local function BVPIA_fake_script() -- Sub2p5.lfling 
+coroutine.wrap(MLMCN_fake_script)()
+local function MBLHD_fake_script() -- Sub2p5.lfling 
 	local script = Instance.new('LocalScript', Sub2p5)
 
 	local lfling = script.Parent.LFLING
@@ -2086,8 +2086,8 @@ local function BVPIA_fake_script() -- Sub2p5.lfling
 		end
 	end)
 end
-coroutine.wrap(BVPIA_fake_script)()
-local function OEBVY_fake_script() -- GuiN.xd 
+coroutine.wrap(MBLHD_fake_script)()
+local function PYIT_fake_script() -- GuiN.xd 
 	local script = Instance.new('LocalScript', GuiN)
 
 	script.Parent.Parent.Position = UDim2.new(-0, 0, 0.636, 0)
@@ -2098,8 +2098,8 @@ local function OEBVY_fake_script() -- GuiN.xd
 	
 	
 end
-coroutine.wrap(OEBVY_fake_script)()
-local function EUGUZR_fake_script() -- GuiMX.PageScript 
+coroutine.wrap(PYIT_fake_script)()
+local function SBUHX_fake_script() -- GuiMX.PageScript 
 	local script = Instance.new('LocalScript', GuiMX)
 
 	local Page = 1
@@ -2228,8 +2228,8 @@ local function EUGUZR_fake_script() -- GuiMX.PageScript
 		refreshPage()
 	end)
 end
-coroutine.wrap(EUGUZR_fake_script)()
-local function EUGPHZ_fake_script() -- GuiMX.PageFade 
+coroutine.wrap(SBUHX_fake_script)()
+local function IMCKVV_fake_script() -- GuiMX.PageFade 
 	local script = Instance.new('LocalScript', GuiMX)
 
 	local fadePage = script.Parent.Parent.FadePage
@@ -2296,8 +2296,8 @@ local function EUGPHZ_fake_script() -- GuiMX.PageFade
 		refreshFade()
 	end)
 end
-coroutine.wrap(EUGPHZ_fake_script)()
-local function KATISWA_fake_script() -- GuiN.SHIELD 
+coroutine.wrap(IMCKVV_fake_script)()
+local function OIJCXLH_fake_script() -- GuiN.SHIELD 
 	local script = Instance.new('LocalScript', GuiN)
 
 	game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
@@ -2316,12 +2316,12 @@ local function KATISWA_fake_script() -- GuiN.SHIELD
 		end
 	end)
 end
-coroutine.wrap(KATISWA_fake_script)()
+coroutine.wrap(OIJCXLH_fake_script)()
 
 -- MENU
 
 local function refreshMenu()
-
+	
 	local xd = game:GetService("Players").LocalPlayer.PlayerGui.Home.hud.ClockFrame
 
 	local xdxd = game:GetService("Players").LocalPlayer.PlayerGui.Home.hud.MenuButton
@@ -2356,18 +2356,62 @@ wait(1)
 
 refreshMenu()
 
+function GetPlayersInTeam(TeamName)
+	return game:GetService("Teams")[tostring(TeamName)]:GetPlayers()
+end
+
 local function getGuns()
+	local guards = GetPlayersInTeam("Guards")
+
+	for i,v in pairs(guards) do
+		if v == game:GetService("Players").LocalPlayer then
+			
+
+			game:GetService("Players").LocalPlayer.Backpack.M9.Parent = game:GetService("Lighting")
+
+			game:GetService("Players").LocalPlayer.Backpack.Taser.Parent = game:GetService("Lighting")
+
+			game:GetService("Players").LocalPlayer.Backpack.Handcuffs.Parent = game:GetService("Lighting")
+		end
+	end
+	
+	wait()
+	
+	local colorfavz = Colorfav.BackgroundColor3
 	--M4A1----------------------------------------------------
 	if (game:GetService("MarketplaceService"):UserOwnsGamePassAsync(game.Players.LocalPlayer.UserId, 96651)) then
 		game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+
+		if SETTIME.Text == "GUNCOLOR: ON" then
+			if game:GetService("Players").LocalPlayer.Backpack.M4A1 then
+				for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack.M4A1.Model:GetChildren()) do
+					v.BrickColor = BrickColor.new(colorfavz)
+				end
+			end
+		end
 	else --If you don't have gamepass for M4A1 then you will get the converted AK-47
-		game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP) 
+		game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
 		require(game.Players.LocalPlayer.Backpack:FindFirstChild("AK-47"):FindFirstChild("GunStates"))["FireRate"] = 0.09
+		if SETTIME.Text == "GUNCOLOR: ON" then
+			if game:GetService("Players").LocalPlayer.Backpack["AK-47"] then
+				for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack["AK-47"].Model:GetChildren()) do
+					v.BrickColor = BrickColor.new(colorfavz)
+				end
+			end
+		end
 	end
+
 	----------------------------------------------------------
 	--Remington870--------------------------------------------
 	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP) --Remington 870
-
+	
+	if SETTIME.Text == "GUNCOLOR: ON" then
+		if game:GetService("Players").LocalPlayer.Backpack["Remington 870"] then
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack["Remington 870"].Model:GetChildren()) do
+				v.BrickColor = BrickColor.new(colorfavz)
+			end
+		end
+	end
 
 	----------------------------------------------------------
 
@@ -2376,14 +2420,41 @@ local function getGuns()
 		--If you don't have gamepass for M4A1 then you will not get this AK-47
 		game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
 	end
-	----------------------------------------------------------
-
-	--M9---------------------------------------------------
-	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-	if game.Players.LocalPlayer:FindFirstChild("M9") then
-		game.Players.LocalPlayer:FindFirstChild("M9").Parent = game.Players.LocalPlayer.Backpack
+	
+	if SETTIME.Text == "GUNCOLOR: ON" then
+		if game:GetService("Players").LocalPlayer.Backpack["AK-47"] then
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack["AK-47"].Model:GetChildren()) do
+				v.BrickColor = BrickColor.new(colorfavz)
+			end
+		end
 	end
-	-------------------------------------------------------
+	----------------------------------------------------------
+	
+	for i,v in pairs(guards) do
+		if v == game:GetService("Players").LocalPlayer then
+			game:GetService("Lighting").M9.Parent = game:GetService("Players").LocalPlayer.Backpack
+			
+			wait()
+			if SETTIME.Text == "GUNCOLOR: ON" then
+				if game:GetService("Players").LocalPlayer.Backpack.M9 then
+					game:GetService("Players").LocalPlayer.Backpack.M9.Part.BrickColor = BrickColor.new(colorfavz)
+				end
+			end
+			game:GetService("Lighting").Taser.Parent = game:GetService("Players").LocalPlayer.Backpack
+			wait()
+			game:GetService("Lighting").Handcuffs.Parent = game:GetService("Players").LocalPlayer.Backpack
+		else
+			game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+			if game.Players.LocalPlayer:FindFirstChild("M9") then
+				game.Players.LocalPlayer:FindFirstChild("M9").Parent = game.Players.LocalPlayer.Backpack
+			end
+			if SETTIME.Text == "GUNCOLOR: ON" then
+				if game:GetService("Players").LocalPlayer.Backpack.M9 then
+					game:GetService("Players").LocalPlayer.Backpack.M9.Part.BrickColor = BrickColor.new(colorfavz)
+				end
+			end
+		end
+	end
 end
 
 function GetRootOri()
@@ -2395,6 +2466,20 @@ function chatnotify(text)
 	game.StarterGui:SetCore("ChatMakeSystemMessage", {Text = text; Color = Colorfav.BackgroundColor3; Font = Enum.Font.SourceSansBold; FontSize = Enum.FontSize.Size42})
 end
 
+local function humanoidDied()
+	if ANTISH.TextColor3 == Color3.fromRGB(85, 255, 127) then
+		local lastPos = GetRootOri()
+		local lastCam = workspace.CurrentCamera.CFrame
+		game:GetService("Workspace").Remote.loadchar:InvokeServer()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastPos
+		workspace.CurrentCamera.CFrame = lastCam
+		game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+	end
+end
+
+local UserId = tonumber((game:GetService("Players").LocalPlayer.CharacterAppearance):split('=')[#((game:GetService("Players").LocalPlayer.CharacterAppearance):split('='))])
+local UserName = game:GetService('HttpService'):JSONDecode(game:HttpGet('http://api.roblox.com/users/'..UserId)).Username
+
 -- all buttons
 
 BLBu.MouseButton1Down:connect(function()
@@ -2402,7 +2487,46 @@ BLBu.MouseButton1Down:connect(function()
 end)
 
 ANTIS.MouseButton1Down:connect(function()
-	chatnotify("Lo siento, esto aun no se puede usar :(")
+	
+	if ANTIS.TextColor3 == Color3.fromRGB(255, 255, 255) then
+		ANTIS.TextColor3 = Color3.fromRGB(85, 255, 127)
+		
+		ANTISH.TextColor3 = Color3.fromRGB(85, 255, 127)
+		ANTISH.Text = "AUTORESPAWN: ON"
+
+		chatnotify("SE HA ACTIVADO EL AUTORESPAWN POR EL ANTISPAM.")
+
+		local char = workspace:FindFirstChild(UserName)
+
+		char.Humanoid.Died:Connect(humanoidDied)
+		
+		COPLOOP.TextColor3 = Color3.fromRGB(85, 255, 127)
+		COPLOOP.Text = "COPLOOP: ON"
+		
+		local crim = game:GetService("Workspace")["Criminals Spawn"]:GetChildren()
+		
+		for i,v in pairs(crim) do
+			v.Position = Vector3.new(-732, 93, 2147)
+		end
+		
+		while true do
+			wait(.01)
+			workspace.Remote.TeamEvent:FireServer("Bright blue")
+			if COPLOOP.TextColor3 == Color3.fromRGB(255,0,0) then
+				break
+			end
+		end
+	else
+		if ANTIS.TextColor3 == Color3.fromRGB(85, 255, 127) then
+			ANTIS.TextColor3 = Color3.fromRGB(255, 255, 255)
+			
+			COPLOOP.TextColor3 = Color3.fromRGB(255,0,0)
+			COPLOOP.Text = "COPLOOP: OFF"
+		end
+	end
+	
+	
+	
 end)
 
 END.MouseButton1Down:connect(function()
@@ -2650,8 +2774,42 @@ game:GetService("UserInputService").InputBegan:connect(function(input, gameProce
 end)
 
 SETTIME.MouseButton1Down:connect(function()
-	chatnotify("aun no")
+	if SETTIME.TextColor3 == Color3.fromRGB(255, 0, 0) then
+		
+		local colorfavz = Colorfav.BackgroundColor3
+		
+		chatnotify("LAS ARMAS ESTARAN COLOREADAS.")
+		
+		if game:GetService("Players").LocalPlayer.Backpack.M4A1 then
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack.M4A1.Model:GetChildren()) do
+				v.BrickColor = BrickColor.new(colorfavz)
+			end
+		end
+
+		if game:GetService("Players").LocalPlayer.Backpack["Remington 870"] then
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack["Remington 870"].Model:GetChildren()) do
+				v.BrickColor = BrickColor.new(colorfavz)
+			end
+		end
+
+		if game:GetService("Players").LocalPlayer.Backpack["AK-47"] then
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack["AK-47"].Model:GetChildren()) do
+				v.BrickColor = BrickColor.new(colorfavz)
+			end
+		end
+
+		if game:GetService("Players").LocalPlayer.Backpack.M9 then
+			game:GetService("Players").LocalPlayer.Backpack.M9.Part.BrickColor = BrickColor.new(colorfavz)
+		end
+	else
+		if SETTIME.TextColor3 == Color3.fromRGB(85, 255, 127) then
+			
+			chatnotify("LAS ARMAS YA NO ESTARAN COLOREADAS.")
+		end
+	end
 end)
+
+
 
 game:GetService("Players").LocalPlayer.PlayerGui.Home.fadeFrame.Visible = false
 
@@ -2703,9 +2861,6 @@ local function GetPlayerFromString(nameString)
 		return nil
 	end
 end
-
-local UserId = tonumber((game:GetService("Players").LocalPlayer.CharacterAppearance):split('=')[#((game:GetService("Players").LocalPlayer.CharacterAppearance):split('='))])
-local UserName = game:GetService('HttpService'):JSONDecode(game:HttpGet('http://api.roblox.com/users/'..UserId)).Username
 
 FLING.MouseButton1Down:connect(function()
 	if FLING.TextColor3 == Color3.fromRGB(255,0,0) then
@@ -2762,17 +2917,6 @@ function respawns()
 			game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
 			game.Players.LocalPlayer.Character.ClientInputHandler.Disabled = true
 		end)
-	end
-end
-
-local function humanoidDied()
-	if ANTISH.TextColor3 == Color3.fromRGB(85, 255, 127) then
-		local lastPos = GetRootOri()
-		local lastCam = workspace.CurrentCamera.CFrame
-		game:GetService("Workspace").Remote.loadchar:InvokeServer()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastPos
-		workspace.CurrentCamera.CFrame = lastCam
-		game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
 	end
 end
 
@@ -2854,6 +2998,8 @@ ANTISH.MouseButton1Down:connect(function()
 		local char = workspace:FindFirstChild(UserName)
 
 		char.Humanoid.Died:Connect(humanoidDied)
+		
+		
 	else
 		if ANTISH.TextColor3 == Color3.fromRGB(85, 255, 127) then
 			ANTISH.TextColor3 = Color3.fromRGB(255,0,0)
